@@ -10,13 +10,13 @@ import edu.epu.realestate.models.MethodModel;
 import edu.epu.realestate.models.PageModel;
 import edu.epu.realestate.models.dialogs.ConfirmDialog;
 import edu.epu.realestate.models.dialogs.MessageDialog;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
@@ -188,6 +188,14 @@ public class ManagerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        txtPageKey.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    tblPages.setItems(PageBusiness.select(txtPageKey.getText().trim()));
+                }
+            }
+        });
         initMethods();
         initCategories();
         initPages();
@@ -207,12 +215,6 @@ public class ManagerController implements Initializable {
                     txtPageUrl.setText(pageModel.getPageUrl());
                     txtPageDescription.setText(pageModel.getPageDescription());
                 }
-            }
-        });
-        txtPageKey.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                PageBusiness.select(newValue.trim());
             }
         });
     }

@@ -13,10 +13,13 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -242,11 +245,13 @@ public class GroupController implements Initializable {
         fldGroupParam.setCellValueFactory(new PropertyValueFactory<MethodModel, String>("groupParam"));
         tblGroups.setItems(GroupBusiness.select(""));
         count();
-        txtGroupKey.textProperty().addListener(new ChangeListener<String>() {
+        txtGroupKey.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                tblGroups.setItems(GroupBusiness.select(newValue));
-                count();
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    tblGroups.setItems(GroupBusiness.select(txtGroupKey.getText().trim()));
+                    count();
+                }
             }
         });
         intiMethods();

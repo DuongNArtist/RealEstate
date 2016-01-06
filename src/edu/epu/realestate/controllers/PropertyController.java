@@ -7,12 +7,13 @@ import edu.epu.realestate.controllers.parsers.PropertyModelParser;
 import edu.epu.realestate.models.*;
 import edu.epu.realestate.models.dialogs.ConfirmDialog;
 import edu.epu.realestate.models.dialogs.MessageDialog;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -122,11 +123,13 @@ public class PropertyController implements Initializable {
         fldPropertyEmail.setCellValueFactory(new PropertyValueFactory<MethodModel, String>("propertyEmail"));
         tblProperties.setItems(PropertyBusiness.select(txtPropertyKey.getText().trim()));
         count();
-        txtPropertyKey.textProperty().addListener(new ChangeListener<String>() {
+        txtPropertyKey.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                tblProperties.setItems(PropertyBusiness.select(newValue.trim()));
-                count();
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    tblProperties.setItems(PropertyBusiness.select(txtPropertyKey.getText().trim()));
+                    count();
+                }
             }
         });
     }
