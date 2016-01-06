@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" spacing="5.0"
+      xmlns="http://javafx.com/javafx/null" fx:controller="edu.epu.realestate.controllers.GroupController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+            <children>
+                <Label text="Lọc theo">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="cmbMethod" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                          minWidth="-Infinity" onAction="#filterGroup" prefWidth="200.0" promptText="Hình Thức"/>
+                <Label layoutX="10.0" layoutY="14.0" text="và">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="cmbCategory" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                          minWidth="-Infinity" onAction="#filterGroup" prefWidth="200.0" promptText="Danh Mục"/>
+                <Label layoutX="300.0" layoutY="14.0" text="và">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <ComboBox fx:id="cmbPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                          minWidth="-Infinity" onAction="#filterGroup" prefWidth="200.0" promptText="Trang"/>
+                <Label layoutX="522.0" layoutY="14.0" text="Hoặc tìm kiếm theo">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="txtGroupKey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                           minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" promptText="Từ khóa..."/>
+                <Label fx:id="lblCount" text="được">
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <TableView fx:id="tblGroups" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                   minWidth="-Infinity" onMouseClicked="#clickMouse" prefHeight="280.0" prefWidth="1200.0">
+            <columns>
+                <TableColumn fx:id="fldGroupId" minWidth="-Infinity" prefWidth="100.0" text="Mã Nhóm"/>
+                <TableColumn fx:id="fldMethodId" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Mã Hình Thức"/>
+                <TableColumn fx:id="fldCategoryId" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Mã Danh Mục"/>
+                <TableColumn fx:id="fldPageId" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Mã Trang"/>
+                <TableColumn fx:id="fldGroupUrl" minWidth="-Infinity" prefWidth="300.0" resizable="false"
+                             text="Đường Dẫn"/>
+                <TableColumn fx:id="fldGroupTitle" minWidth="-Infinity" prefWidth="380.0" resizable="false"
+                             text="Tiêu Đề"/>
+                <TableColumn fx:id="fldGroupParam" minWidth="-Infinity" prefWidth="114.0" resizable="false"
+                             text="Nhóm Tham Số"/>
+            </columns>
+        </TableView>
+        <HBox alignment="TOP_CENTER" prefWidth="1200.0" spacing="10.0">
+            <children>
+                <GridPane hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity"
+                                           prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity"
+                                           prefWidth="300.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Mã nhóm"/>
+                        <Label text="Mã hình thức" GridPane.rowIndex="1"/>
+                        <TextField fx:id="txtGroupId" editable="false" prefWidth="300.0" GridPane.columnIndex="1"/>
+                        <HBox alignment="CENTER" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                            <children>
+                                <Button fx:id="btnNewGroup" layoutX="430.0" layoutY="13.0" mnemonicParsing="false"
+                                        onAction="#newGroup" prefWidth="80.0" text="Mới"/>
+                                <Button fx:id="btnSaveGroup" mnemonicParsing="false" onAction="#saveGroup"
+                                        prefWidth="80.0" text="Lưu"/>
+                                <Button fx:id="btnDeleteGroup" mnemonicParsing="false" onAction="#deleteGroup"
+                                        prefWidth="80.0" text="Xóa"/>
+                            </children>
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </HBox>
+                        <Label text="Mã trang" GridPane.rowIndex="3"/>
+                        <Label text="Nhóm tham số" GridPane.rowIndex="6"/>
+                        <TextField fx:id="txtGroupTitle" prefWidth="300.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="5"/>
+                        <ComboBox fx:id="cmbMethodId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                  minWidth="-Infinity" prefWidth="300.0" promptText="Hãy chọn 1 hình thức"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="cmbCategoryId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                  minWidth="-Infinity" prefWidth="300.0" promptText="Hãy chọn 1 danh mục"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <ComboBox fx:id="cmbPageId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                  minWidth="-Infinity" prefWidth="300.0" promptText="Hãy chọn 1 trang"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <TextField fx:id="txtGroupUrl" layoutX="95.0" layoutY="168.0" prefWidth="300.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label layoutX="15.0" layoutY="112.0" text="Mã danh mục" GridPane.rowIndex="2"/>
+                        <Label layoutX="15.0" layoutY="112.0" text="Đường dẫn" GridPane.rowIndex="4"/>
+                        <Label layoutX="15.0" layoutY="142.0" text="Tiêu đề" GridPane.rowIndex="5"/>
+                        <TextField fx:id="txtGroupParam" layoutX="95.0" layoutY="298.0" prefWidth="300.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </GridPane>
+                <VBox alignment="TOP_CENTER" prefHeight="277.0" prefWidth="551.0" spacing="5.0">
+                    <children>
+                        <Label text="Danh sách đường dẫn">
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <ListView fx:id="lstUrls" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                  minWidth="-Infinity" prefHeight="160.0" prefWidth="750.0"/>
+                        <Label fx:id="lblLink" prefHeight="17.0" text="..."/>
+                        <ProgressBar fx:id="prgProgress" prefHeight="20.0" prefWidth="750.0" progress="0.0"/>
+                        <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
+                            <children>
+                                <Button fx:id="btnStartGetMainUrls" layoutX="110.0" layoutY="10.0"
+                                        mnemonicParsing="false" onAction="#startGetMainUrls" prefHeight="25.0"
+                                        prefWidth="100.0" text="Start Get Main"/>
+                                <Button fx:id="btnStopGetMainUrls" layoutX="250.0" layoutY="10.0"
+                                        mnemonicParsing="false" onAction="#stopGetMainUrls" prefHeight="25.0"
+                                        prefWidth="100.0" text="Stop Get Main"/>
+                                <Button fx:id="btnStartGetSubUrls" mnemonicParsing="false" onAction="#startGetSubUrls"
+                                        prefHeight="25.0" prefWidth="100.0" text="Start Get Sub"/>
+                                <Button fx:id="btnStopGetSubUrls" layoutX="105.0" layoutY="10.0" mnemonicParsing="false"
+                                        onAction="#stopGetSubUrls" prefHeight="25.0" prefWidth="100.0"
+                                        text="Stop Get Sub"/>
+                                <Button fx:id="btnStartCrawl" maxHeight="-Infinity" maxWidth="-Infinity"
+                                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                                        onAction="#startCrawl" prefHeight="25.0" prefWidth="100.0" text="Start Crawl"/>
+                                <Button fx:id="btnStopCrawl" mnemonicParsing="false" onAction="#stopCrawl"
+                                        prefHeight="25.0" prefWidth="100.0" text="Stop Crawl"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+</VBox>

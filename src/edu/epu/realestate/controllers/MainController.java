@@ -51,7 +51,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //signIn();
+        signIn();
         btnShowManager.setGraphic(new ImageView(new Image("file:res/images/manager.png")));
         btnShowGroup.setGraphic(new ImageView(new Image("file:res/images/group.png")));
         btnShowProperty.setGraphic(new ImageView(new Image("file:res/images/property.png")));
@@ -63,7 +63,7 @@ public class MainController implements Initializable {
         try {
             URL url = MainApplication.class.getResource("views/user_view.fxml");
             FXMLLoader loader = new FXMLLoader(url);
-            GridPane pane = loader.load();
+            VBox pane = loader.load();
             panRoot.setCenter(pane);
             UserController controller = loader.getController();
             controller.setApplication(application);

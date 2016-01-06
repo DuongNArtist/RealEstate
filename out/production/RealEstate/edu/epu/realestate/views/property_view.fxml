@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" spacing="5.0"
+      xmlns="http://javafx.com/javafx/null" fx:controller="edu.epu.realestate.controllers.PropertyController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="5.0">
+            <Label text="Lọc theo">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="cmbGroup" onAction="#filterByGroup" prefWidth="150.0" promptText="Nhóm"/>
+            <Label text="hoặc theo">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="cmbMethod" layoutX="15.0" layoutY="10.0" onAction="#filterProperty" prefWidth="150.0"
+                      promptText="Hình Thức"/>
+            <Label text="và">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="cmbCategory" layoutX="955.0" layoutY="10.0" onAction="#filterProperty" prefWidth="150.0"
+                      promptText="Danh Mục"/>
+            <Label text="và">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="cmbPage" layoutX="1071.0" layoutY="10.0" onAction="#filterProperty" prefWidth="150.0"
+                      promptText="Trang"/>
+            <Label text="hoặc tìm kiếm theo">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="txtPropertyKey" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                       minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" promptText="Từ khóa...">
+                <VBox.margin>
+                    <Insets top="5.0"/>
+                </VBox.margin>
+            </TextField>
+            <Label fx:id="lblCount" text="được">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </Label>
+            <padding>
+                <Insets left="5.0" right="5.0"/>
+            </padding>
+            <VBox.margin>
+                <Insets top="5.0"/>
+            </VBox.margin>
+        </HBox>
+        <TableView fx:id="tblProperties" editable="true" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#clickMouse" prefHeight="370.0"
+                   prefWidth="1200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="fldPropertyId" minWidth="-Infinity" prefWidth="50.0" text="Mã Tin"/>
+                <TableColumn fx:id="fldGroupId" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Mã Nhóm"/>
+                <TableColumn fx:id="fldPropertyUrl" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Đường Dẫn"/>
+                <TableColumn fx:id="fldPropertyTitle" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Tiêu Đề"/>
+                <TableColumn fx:id="fldPropertyPrice" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Giá"/>
+                <TableColumn fx:id="fldPropertySquare" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Diện Tích"/>
+                <TableColumn fx:id="fldPropertyProject" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Dự Án"/>
+                <TableColumn fx:id="fldPropertyAddress" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Địa Chỉ"/>
+                <TableColumn fx:id="fldPropertyDescription" minWidth="-Infinity" prefWidth="200.0" resizable="false"
+                             text="Mô Tả"/>
+                <TableColumn fx:id="fldPropertyContact" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Liên Hệ"/>
+                <TableColumn fx:id="fldPropertyMobile" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Số Điện Thoại"/>
+                <TableColumn fx:id="fldPropertyEmail" minWidth="-Infinity" prefWidth="100.0" resizable="false"
+                             text="Thư Điện Tử"/>
+            </columns>
+        </TableView>
+        <BorderPane prefWidth="800.0" BorderPane.alignment="CENTER">
+            <left>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Mã nhóm" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="cmbGroupId" prefHeight="25.0" prefWidth="300.0" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="1"/>
+                        <Label text="Đường dẫn" GridPane.rowIndex="2"/>
+                        <TextField fx:id="txtPropertyUrl" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="2"/>
+                        <Label text="Mã tin"/>
+                        <TextField fx:id="txtPropertyId" editable="false" prefWidth="200.0" GridPane.columnIndex="1"/>
+                        <TextField fx:id="txtPropertyTitle" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3"/>
+                        <TextField fx:id="txtPropertySquare" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="5"/>
+                        <Label text="Diện tích" GridPane.rowIndex="5"/>
+                        <TextField fx:id="txtPropertyPrice" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="4"/>
+                        <Label text="Giá" GridPane.rowIndex="4"/>
+                        <Label text="Tiêu đề" GridPane.rowIndex="3"/>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets left="5.0"/>
+                    </BorderPane.margin>
+                </GridPane>
+            </left>
+            <right>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="300.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <TextField fx:id="txtPropertyEmail" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="4"/>
+                        <Label text="Thư điện tử" GridPane.rowIndex="4"/>
+                        <TextField fx:id="txtPropertyMobile" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="3"/>
+                        <Label text="Điện thoại" GridPane.rowIndex="3"/>
+                        <TextField fx:id="txtPropertyContact" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="2"/>
+                        <Label text="Liên hệ" GridPane.rowIndex="2"/>
+                        <TextField fx:id="txtPropertyAddress" prefWidth="200.0" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+                        <Label text="Địa chỉ" GridPane.rowIndex="1"/>
+                        <TextField fx:id="txtPropertyProject" prefWidth="200.0" GridPane.columnIndex="1"/>
+                        <Label text="Dự án"/>
+                        <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <children>
+                                <Button fx:id="btnNewProperty" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"
+                                        onAction="#newProperty" prefWidth="80.0" text="Mới"/>
+                                <Button fx:id="btnSaveProperty" mnemonicParsing="false" onAction="#saveProperty"
+                                        prefWidth="80.0" text="Lưu"/>
+                                <Button fx:id="btnDeleteProperty" mnemonicParsing="false" onAction="#deleteProperty"
+                                        prefWidth="80.0" text="Xóa"/>
+                            </children>
+                        </HBox>
+                        <Button fx:id="btnCrawProperty" mnemonicParsing="false" onAction="#crawlProperty"
+                                prefWidth="80.0" text="Thu thập" GridPane.rowIndex="5"/>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets right="5.0"/>
+                    </BorderPane.margin>
+                </GridPane>
+            </right>
+            <center>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+                    <children>
+                        <Label text="Mô tả"/>
+                        <TextArea fx:id="txtPropertyDescription" prefHeight="150.0" prefWidth="380.0" wrapText="true"/>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0"/>
+                    </BorderPane.margin>
+                </VBox>
+            </center>
+        </BorderPane>
+
+    </children>
+</VBox>

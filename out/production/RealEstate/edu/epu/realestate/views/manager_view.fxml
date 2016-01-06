@@ -38,7 +38,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPageKey" text="Nhập từ khóa cần tìm kiếm vào đây rồi bấm Enter..." />
+            <TextField fx:id="txtPageKey" />
             <TableView fx:id="tblPages" prefHeight="350.0" prefWidth="580.0">
               <columns>
                 <TableColumn fx:id="fldPageName" prefWidth="200.0" text="Tên Trang" />
