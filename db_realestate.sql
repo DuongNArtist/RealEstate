@@ -1,4 +1,4 @@
-﻿/*
+/*
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100109
 File Encoding         : 65001
 
-Date: 2016-01-06 09:25:50
+Date: 2016-01-06 09:37:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -60,11 +60,22 @@ CREATE TABLE `tbl_groups` (
   `fld_group_title` text COLLATE utf8_unicode_ci,
   `fld_group_param` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`fld_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_groups
 -- ----------------------------
+INSERT INTO `tbl_groups` VALUES ('1', '1', '5', '1', 'http://batdongsan.com.vn/ban-can-ho-chung-cu', 'Cần Bán - Căn hộ chung cư - Bất Động Sản', 'http://batdongsan.com.vn/ban-can-ho-chung-cu/p%s 2 200 1');
+INSERT INTO `tbl_groups` VALUES ('2', '1', '1', '2', 'http://www.muabannhadat.vn/nha-ban-nha-pho-3535', 'Cần Bán - Nhà ngoài mặt phố - Mua Bán Nhà Đất', 'http://www.muabannhadat.vn/nha-ban-nha-pho-3535?p=%s 2 2622 1');
+INSERT INTO `tbl_groups` VALUES ('3', '1', '1', '3', 'http://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien.html', 'Cần Bán - Nhà ngoài mặt phố - Alo Nhà Đất', 'http://alonhadat.com.vn/nha-dat/can-ban/nha-mat-tien/trang--%s.html 2 10 1');
+INSERT INTO `tbl_groups` VALUES ('4', '1', '5', '4', 'http://dothi.net/ban-can-ho-chung-cu.htm', 'Cần Bán - Căn hộ chung cư - Đô Thị', 'http://dothi.net/ban-can-ho-chung-cu/p%s.htm 2 9569 1');
+INSERT INTO `tbl_groups` VALUES ('5', '1', '16', '5', 'http://nhadat24h.net/ban-bat-dong-san-chinh-chu-tai-ha-noi-nha-dat-chinh-chu-tai-ha-noi-s295841/', 'Cần Bán - Nhà đất chính chủ - Nhà Đất 24h', 'http://nhadat24h.net/ban-bat-dong-san-chinh-chu-tai-ha-noi-nha-dat-chinh-chu-tai-ha-noi-s295841/%s 2 238 1');
+INSERT INTO `tbl_groups` VALUES ('6', '1', '4', '6', 'http://123nhadat.vn/raovat-c3/ban-biet-thu-trong-du-an', 'Cần Bán - Biệt thự, nhà liền kề - 123 Nhà Đất', 'http://123nhadat.vn/raovat-c3/ban-biet-thu-trong-du-an/%s/-1/0/0 1 1');
+INSERT INTO `tbl_groups` VALUES ('7', '1', '3', '7', 'http://cafeland.vn/nha-dat', 'Cần Bán - Nhà riêng - Cafe Land', 'http://cafeland.vn/nha-dat/page-%s/ 1 1 1');
+INSERT INTO `tbl_groups` VALUES ('8', '1', '4', '8', 'http://diaoconline.vn/sieu-thi/loc/?tindang=1&diaoc=26', 'Danh sách bán Căn hộ dich vụ - DiaOcOnline', 'http://diaoconline.vn/sieu-thi/loc/?tindang=1&diaoc=26&pi=%s 2 10 1');
+INSERT INTO `tbl_groups` VALUES ('9', '1', '5', '9', 'http://dinhgianhadat.vn/nha-dat-ban?IsAll=true&TypeIds=236', 'Cần Bán - Căn hộ chung cư - Định Giá Nhà Đất', 'http://dinhgianhadat.vn/nha-dat-ban?IsAll=true&TypeIds=236&page=%s 2 2 1');
+INSERT INTO `tbl_groups` VALUES ('10', '1', '5', '10', 'http://kenhbds.vn/can-ban/can-ho-chung-cu-l3', 'Cần Bán - Căn hộ chung cư - Kênh Bất Động Sản', 'http://kenhbds.vn/can-ban/can-ho-chung-cu-l3?&per_page=%s 50 150 50');
+INSERT INTO `tbl_groups` VALUES ('11', '1', '5', '11', 'http://nhaso.vn/ha-noi/chung-cu', 'Cần Bán - Căn hộ chung cư - Nhà Số', 'http://nhaso.vn/ha-noi/chung-cu?start=%s 20 60 20');
 
 -- ----------------------------
 -- Table structure for tbl_methods
@@ -129,7 +140,7 @@ CREATE TABLE `tbl_properties` (
   `fld_property_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fld_property_crawled` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`fld_property_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of tbl_properties
