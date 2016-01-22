@@ -10,15 +10,15 @@ import java.sql.*;
  */
 public class DatabaseConnector {
 
-    public static final String DB_NAME = "real_estate_epu";
-    public static final String DB_USER = "duong";
-    public static final String DB_PASS = "12345";
+    public static final String DB_NAME = "db_realestate";
+    public static final String DB_USER = "root";
+    public static final String DB_PASS = "";
 
     public static Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://173.194.85.89/" + DB_NAME + "?" +
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/" + DB_NAME + "?" +
                     "user=" + DB_USER + "&password=" + DB_PASS);
         } catch (InstantiationException e) {
             e.printStackTrace();

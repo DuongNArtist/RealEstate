@@ -8,6 +8,7 @@ import edu.epu.realestate.models.dialogs.MessageDialog;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -23,7 +24,7 @@ public class UserController implements Initializable {
     @FXML
     private TextField txtUsername;
     @FXML
-    private TextField txtPassword;
+    private PasswordField txtPassword;
 
     private MainApplication application;
     private MainController mainController;
